@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Cold Start output",
+  "description": "What run.sh writes. Ids for people, chats and messages come from the input. Organisation ids are yours.",
+  "type": "object",
+  "required": ["people", "organisations", "chats", "goals", "open_loops"],
+  "additionalProperties": false,
+  "properties": {
+    "people": {
+      "type": "array",
+      "description": "One entry per person Arjun deals with. Never include ME.",
+      "items": {
+        "type": "object",
+        "required": ["id", "circle"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "description": "A person id from the input" },
+          "circle": {
+            "enum": ["spouse", "child", "parent", "in-law", "sibling", "relative", "friend", "colleague", "client", "vendor", "partner", "staff"]
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["organisation", "link"],
+              "additionalProperties": false,
+              "properties": {
+                "organisation": { "type": "string", "description": "One of your organisation ids" },
+                "link": { "enum": ["runs", "supports"] }
+              }
+            }
+          },
+          "looks_after": {
+            "type": "array",
+            "description": "For staff who look after a specific person, like a driver for the kids",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    },
+    "organisations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "type", "side", "role"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "type": { "enum": ["company", "residence", "vacation home", "workspace", "society", "school", "other"] },
+          "side": { "enum": ["home", "work"] },
+          "role": { "enum": ["owner", "partner", "helper", "resident", "parent", "member", "other"] }
+        }
+      }
+    },
+    "chats": {
+      "type": "array",
+      "description": "Every chat, tied to exactly one person or one organisation",
+      "items": {
+        "type": "object",
+        "required": ["chat_id"],
+        "additionalProperties": false,
+        "properties": {
+          "chat_id": { "type": "string" },
+          "person": { "type": "string" },
+          "organisation": { "type": "string" }
+        },
+        "oneOf": [{ "required": ["person"] }, { "required": ["organisation"] }]
+      }
+    },
+    "goals": {
+      "type": "array",
+      "maxItems": 10,
+      "items": {
+        "type": "object",
+        "required": ["title", "area", "type", "horizon", "evidence"],
+        "additionalProperties": false,
+        "properties": {
+          "title": { "type": "string" },
+          "area": { "enum": ["self", "spouse", "kids", "parents", "work", "friends", "experiences", "finances", "health", "home"] },
+          "type": { "enum": ["habit", "milestone", "experience"] },
+          "horizon": { "enum": ["3mo", "1yr", "3yr", "5yr"] },
+          "evidence": { "type": "array", "minItems": 1, "items": { "type": "string", "description": "Message ids" } }
+        }
+      }
+    },
+    "open_loops": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["title", "type", "owner", "chat_id", "source_msg", "status"],
+        "additionalProperties": false,
+        "properties": {
+          "title": { "type": "string" },
+          "type": { "enum": ["commitment", "followup", "deadline", "question"] },
+          "owner": { "type": "string", "description": "ME, or the id of the person who owes it" },
+          "chat_id": { "type": "string" },
+          "source_msg": { "type": "string", "description": "The message the loop came from" },
+          "due": { "type": ["string", "null"], "description": "YYYY-MM-DD, or null" },
+          "status": { "enum": ["open", "done", "dropped"] },
+          "closed_by": { "type": ["string", "null"], "description": "For done or dropped: the message that shows it" },
+          "help": {
+            "type": ["object", "null"],
+            "description": "Only for open loops",
+            "required": ["action"],
+            "additionalProperties": false,
+            "properties": {
+              "action": { "enum": ["assist", "remind", "leave"] },
+              "next_step": { "type": "string", "description": "assist: the next step, in one line" },
+              "needs_yes": { "type": "boolean", "description": "assist: does that step need Arjun's yes?" },
+              "remind_at": { "type": "string", "description": "remind: when, as an ISO date-time" },
+              "reason": { "type": "string", "description": "leave: why stay out" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

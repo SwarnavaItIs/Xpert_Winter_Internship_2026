@@ -1,0 +1,16 @@
+{
+  "circles": {
+    "P01": "spouse"
+  },
+  "organisations": [
+    "Brightside Design"
+  ],
+  "goals": [
+    {
+      "title": "Brightside to 10 retainer clients by March",
+      "area": "work",
+      "type": "milestone",
+      "horizon": "1yr"
+    }
+  ]
+}

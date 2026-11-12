@@ -1,0 +1,6 @@
+{"chat_id": "C01", "name": "Karan ❤️", "is_group": false, "participants": ["ME", "P01"]}
+{"chat_id": "C02", "name": "Sunita didi", "is_group": false, "participants": ["ME", "P02"]}
+{"chat_id": "C03", "name": "Ghar 🏠", "is_group": true, "participants": ["ME", "P01", "P02", "P03", "P04"]}
+{"chat_id": "C04", "name": "Brightside team", "is_group": true, "participants": ["ME", "P05", "P06"]}
+{"chat_id": "C05", "name": "Das Printers", "is_group": false, "participants": ["ME", "P07"]}
+{"chat_id": "C06", "name": "Rohan", "is_group": false, "participants": ["ME", "P08"]}

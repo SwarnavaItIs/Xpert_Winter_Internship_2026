@@ -1,0 +1,283 @@
+{
+  "people": [
+    {
+      "id": "P01",
+      "circle": "spouse"
+    },
+    {
+      "id": "P02",
+      "circle": "staff",
+      "links": [
+        {
+          "organisation": "home",
+          "link": "supports"
+        }
+      ]
+    },
+    {
+      "id": "P03",
+      "circle": "staff",
+      "links": [
+        {
+          "organisation": "home",
+          "link": "supports"
+        }
+      ],
+      "looks_after": [
+        "P04"
+      ]
+    },
+    {
+      "id": "P04",
+      "circle": "child"
+    },
+    {
+      "id": "P05",
+      "circle": "colleague",
+      "links": [
+        {
+          "organisation": "brightside",
+          "link": "runs"
+        }
+      ]
+    },
+    {
+      "id": "P06",
+      "circle": "colleague",
+      "links": [
+        {
+          "organisation": "brightside",
+          "link": "runs"
+        }
+      ]
+    },
+    {
+      "id": "P07",
+      "circle": "vendor"
+    },
+    {
+      "id": "P08",
+      "circle": "friend"
+    }
+  ],
+  "organisations": [
+    {
+      "id": "home",
+      "name": "Home",
+      "type": "residence",
+      "side": "home",
+      "role": "owner"
+    },
+    {
+      "id": "brightside",
+      "name": "Brightside Design",
+      "type": "company",
+      "side": "work",
+      "role": "owner"
+    }
+  ],
+  "chats": [
+    {
+      "chat_id": "C01",
+      "person": "P01"
+    },
+    {
+      "chat_id": "C02",
+      "person": "P02"
+    },
+    {
+      "chat_id": "C03",
+      "organisation": "home"
+    },
+    {
+      "chat_id": "C04",
+      "organisation": "brightside"
+    },
+    {
+      "chat_id": "C05",
+      "person": "P07"
+    },
+    {
+      "chat_id": "C06",
+      "person": "P08"
+    }
+  ],
+  "goals": [
+    {
+      "title": "Brightside to 10 retainer clients by March",
+      "area": "work",
+      "type": "milestone",
+      "horizon": "1yr",
+      "evidence": [
+        "M019"
+      ]
+    },
+    {
+      "title": "Run the half marathon in January",
+      "area": "health",
+      "type": "milestone",
+      "horizon": "3mo",
+      "evidence": [
+        "M026",
+        "M027"
+      ]
+    },
+    {
+      "title": "Family trip to Coorg in December",
+      "area": "experiences",
+      "type": "experience",
+      "horizon": "3mo",
+      "evidence": [
+        "M001",
+        "M002"
+      ]
+    }
+  ],
+  "open_loops": [
+    {
+      "title": "Book Coorg tickets and homestay",
+      "type": "commitment",
+      "owner": "ME",
+      "chat_id": "C01",
+      "source_msgs": [
+        "M002",
+        "M001"
+      ],
+      "due": null,
+      "status": "open",
+      "closing_msgs": [],
+      "help": "assist",
+      "why": "Finding options is private and reversible; booking needs her yes."
+    },
+    {
+      "title": "Decide the guest menu for Sunita",
+      "type": "question",
+      "owner": "ME",
+      "chat_id": "C02",
+      "source_msgs": [
+        "M006"
+      ],
+      "due": "2026-10-21",
+      "status": "done",
+      "closing_msgs": [
+        "M007"
+      ]
+    },
+    {
+      "title": "Book the gas cylinder",
+      "type": "commitment",
+      "owner": "ME",
+      "chat_id": "C02",
+      "source_msgs": [
+        "M009"
+      ],
+      "due": null,
+      "status": "done",
+      "closing_msgs": [
+        "M010"
+      ]
+    },
+    {
+      "title": "Raju picks Anya up from tuition at 6",
+      "type": "commitment",
+      "owner": "P03",
+      "chat_id": "C03",
+      "source_msgs": [
+        "M012",
+        "M011"
+      ],
+      "due": "2026-10-20",
+      "status": "done",
+      "closing_msgs": [
+        "M013"
+      ]
+    },
+    {
+      "title": "Karan calls the plumber about the leaking tap",
+      "type": "commitment",
+      "owner": "P01",
+      "chat_id": "C03",
+      "source_msgs": [
+        "M014"
+      ],
+      "due": null,
+      "status": "open",
+      "closing_msgs": [],
+      "help": "leave",
+      "why": "Karan took it. Reminding Meera about her husband's promise is not the assistant's place."
+    },
+    {
+      "title": "Decide whether to take Zest at 60k a month",
+      "type": "question",
+      "owner": "ME",
+      "chat_id": "C04",
+      "source_msgs": [
+        "M016",
+        "M020"
+      ],
+      "due": "2026-10-26",
+      "status": "open",
+      "closing_msgs": [],
+      "help": "remind",
+      "why": "Only she can decide; one nudge before Monday."
+    },
+    {
+      "title": "Vikram sends Orbit the October invoice",
+      "type": "commitment",
+      "owner": "P05",
+      "chat_id": "C04",
+      "source_msgs": [
+        "M017",
+        "M021"
+      ],
+      "due": null,
+      "status": "open",
+      "closing_msgs": [],
+      "help": "leave",
+      "why": "Her colleague owns it and is on it."
+    },
+    {
+      "title": "Halcyon pitch deck due Friday",
+      "type": "deadline",
+      "owner": "ME",
+      "chat_id": "C04",
+      "source_msgs": [
+        "M018"
+      ],
+      "due": "2026-10-23",
+      "status": "open",
+      "closing_msgs": [],
+      "help": "remind",
+      "why": "Her work, with a date. A reminder the day before."
+    },
+    {
+      "title": "Das Printers sends brochure proofs",
+      "type": "followup",
+      "owner": "P07",
+      "chat_id": "C05",
+      "source_msgs": [
+        "M022",
+        "M023"
+      ],
+      "due": "2026-10-21",
+      "status": "done",
+      "closing_msgs": [
+        "M024"
+      ]
+    },
+    {
+      "title": "Send Rohan the training plan",
+      "type": "commitment",
+      "owner": "ME",
+      "chat_id": "C06",
+      "source_msgs": [
+        "M027"
+      ],
+      "due": null,
+      "status": "dropped",
+      "closing_msgs": [
+        "M028"
+      ]
+    }
+  ]
+}
